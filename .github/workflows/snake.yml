@@ -8,7 +8,7 @@ on:
 
   push:
     branches:
-    - main
+      - main
 
 jobs:
   generate:
@@ -18,12 +18,12 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: generate snake.svg
+      - name: generate snake.svg (last 2 years)
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: muhmmdfath
           outputs: dist/snake.svg?palette=github-dark
-
+          years: 2 # Hanya mengambil kontribusi dari 2 tahun terakhir
 
       - name: push snake.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
